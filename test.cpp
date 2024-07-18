@@ -15,6 +15,28 @@ void num(int l, int r, int n) {
     }
 }
  
+void generate_distinct_numbers(int l, int r, int n) {
+    if (n > r - l + 1) {
+        std::cerr << "Error: More numbers requested than the range can provide." << std::endl;
+        return;
+    }
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(l, r);
+
+    std::set<int> unique_numbers;
+    while (unique_numbers.size() < n) {
+        int num = dis(gen);
+        unique_numbers.insert(num);
+    }
+
+    for (const int& num : unique_numbers) {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+}
+
 //Random n real numbers between l and r with dig decimal places
 void real(int l, int r, int dig, int n) {
     for (int i = 0; i < n; ++i)
@@ -86,5 +108,10 @@ void tree(int n) {
 }
 signed main()
 {
+
+    int n=rand(1,10);
+    cout<<1<<endl;
+    cout<<n<<endl;
+    generate_distinct_numbers(1,10,n);
 
 }
