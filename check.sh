@@ -6,8 +6,8 @@ compile_cpp() {
     local output=$2
     if [[ $file == *.cpp ]]; then
         g++ -std=c++17 -o $output $file
-    else
-        cp $file $output
+    # else
+    #     cp $file $output
     fi
 }
 
